@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 
 public class inventoryPane extends ScrollPane {
-    private basedEquipment[] equipmentArr;
+    private ArrayList<basedEquipment> equipmentArr;
     public inventoryPane() {
 
     }
@@ -21,17 +21,17 @@ public class inventoryPane extends ScrollPane {
         infoPane.setBorder(null);
         infoPane.setPadding(new Insets(25, 25, 25, 25));
         if (equipmentArr != null) {
-            ImageView[] imgV = new ImageView[equipmentArr.length];
-            for (int i = 0; i < equipmentArr.length; i++) {
+            ImageView[] imgV = new ImageView[equipmentArr.size()];
+            for (int i = 0; i < equipmentArr.size(); i++) {
                 imgV[i] = new ImageView();
-                imgV[i].setImage(new Image(getClass().getClassLoader().getResource(equipmentArr[i].getImgPath()).toString()));
+                imgV[i].setImage(new Image(getClass().getClassLoader().getResource(equipmentArr.get(i).getImgPath()).toString()));
             }
             infoPane.getChildren().addAll(imgV);
         }
         return infoPane;
     }
 
-        public void drawPane(basedEquipment[] equipments){
+        public void drawPane(ArrayList<basedEquipment> equipments){
             this.equipmentArr = equipments;
             Pane infoPane = getDetailsPane();
             this.setStyle("-fx-background-color: Red;");

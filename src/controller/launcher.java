@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class launcher extends Application {
     private static Scene mainScene;
     private static basedChar mainChar=null;
-    private static basedEquipment[] equipments = null;
+    private static ArrayList<basedEquipment> equipments = null;
     private static Weapon weapon =null;
     private static Armor armor =null;
     private static charPane characterPane=null;
